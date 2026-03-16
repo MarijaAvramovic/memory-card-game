@@ -19,7 +19,8 @@ export default function App() {
 
     <>
       <Scoreboard />
-     <div>
+      <section>
+ <div className="grid">
       {pokemon.map((poke, index) => (
         <Card
           key={index}
@@ -28,6 +29,9 @@ export default function App() {
         />
       ))}
     </div>
+
+      </section>
+     
     
     </>
  
