@@ -2,8 +2,9 @@ export default function Card( pokemon) {
 
     return (
         <div>
-            <p>{pokemon.name}</p>
-                <img src={pokemon.image} alt="" />
+           
+                <img src={pokemon.image} alt={pokemon.name} />
+                  <p>{pokemon.name}</p>
         </div>
     )
 }
