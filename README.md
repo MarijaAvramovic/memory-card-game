@@ -15,6 +15,8 @@ Shuffle Cards Function - function that displays the cards in a random order anyt
 Used [...pokemon].sort(() => Math.random() - 0.5) to make a shuffled copy of the array.
 On card click it updates the state with setPokemon(shuffled), causing React to re-render the cards in a new random order.
 
-2️⃣ Rendering Pokémon Cards
+handleCardClick(pokeId) function:
 
-You use pokemon.map(...) to loop through the array and render a <Card /> component for each Pokémon.
+Checks if the clicked Pokémon ID is not already in the clicked array in state.
+If it’s new, increments the score by 1 and adds the ID to the clicked array.
+Shuffles the cards after every click. Each card gives a point only once, and the board reshuffles every time a card is clicked. If clicked twice resets the game and update best score in current score is higher then best score.

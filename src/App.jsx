@@ -6,6 +6,8 @@ import Card from './components/Card'
 export default function App() {
 
    const [pokemon, setPokemon] = useState([]);
+   const [score, setScore] = useState(0);
+   const [clicked, setClicked] = useState([]);
  
 
 
@@ -39,17 +41,25 @@ useEffect(() => {
     const shuffled = [...pokemon].sort(() => Math.random() - 0.5);
     setPokemon(shuffled);
   }
+
+    function handleCardClick(pokeId) {
+    if (!clicked.includes(pokeId)) {
+      setScore(prev => prev + 1);
+      setClicked(prev => [...prev, pokeId]);
+    }
+    shuffleCards();
+  }
   return( 
 
     <>
-      <Scoreboard />
+      <Scoreboard score={score} />
       <section>
  <div className="grid">
       {pokemon.map((poke) => (
     <Card
       key={poke.id}
       pokemon={poke}
-      onClick={shuffleCards}
+      onClick={() => handleCardClick(poke.id)}
     />
   ))}
     </div>
