@@ -3,33 +3,32 @@ import './App.css'
 import Scoreboard from './components/Scoreboard'
 import Card from './components/Card'
 
-function App() {
+export default function App() {
 
-   const [pokemon, setPokemon] = useState(null);
+   const [pokemon, setPokemon] = useState([]);
 
    useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=12")
       .then(res => res.json())
       .then(data => {
-        setPokemon({
-          name: data.name,
-          image: data.sprites.front_default
-        });
+        setPokemon(data.results);
       });
   }, []);
 
-  return(
+  return( 
 
     <>
       <Scoreboard />
-      <div>
-      {pokemon && (
+     <div>
+      {pokemon.map((poke, index) => (
         <Card
-          name={pokemon.name}
-          image={pokemon.image}
+          key={index}
+          name={poke.name}
+          image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
         />
-      )}
+      ))}
     </div>
+    
     </>
  
   
@@ -37,8 +36,3 @@ function App() {
   
 
 }
-
-export default App
- 
-
- 
