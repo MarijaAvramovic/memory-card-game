@@ -8,6 +8,7 @@ export default function App() {
    const [pokemon, setPokemon] = useState([]);
    const [score, setScore] = useState(0);
    const [clicked, setClicked] = useState([]);
+   const [bestScore, setBestScore] = useState(0);
  
 
 
@@ -35,7 +36,11 @@ useEffect(() => {
   fetchPokemon();
 }, []);
 
-
+    function resetGame(){
+      setScore(0);
+      setClicked([]);
+      shuffleCards();
+    }
 
     function shuffleCards() {
     const shuffled = [...pokemon].sort(() => Math.random() - 0.5);
@@ -47,12 +52,18 @@ useEffect(() => {
       setScore(prev => prev + 1);
       setClicked(prev => [...prev, pokeId]);
     }
+    else {
+       if (score > bestScore) {
+      setBestScore(score);
+    }
+      resetGame();
+    }
     shuffleCards();
   }
   return( 
 
     <>
-      <Scoreboard score={score} />
+      <Scoreboard score={score} bestScore={bestScore} />
       <section>
  <div className="grid">
       {pokemon.map((poke) => (

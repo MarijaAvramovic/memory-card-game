@@ -7,7 +7,7 @@ export default function Card( { pokemon, onClick}) {
                     <img src={pokemon.image} alt={pokemon.name} />
                 </div>
                  
-                  <p>{pokemon.name}</p>
+                  <p>{pokemon.name.toUpperCase()}</p>
         </div>
     )
 }
