@@ -1,4 +1,4 @@
-Memory card project - https://admirable-maamoul-70db9d.netlify.app/ -
+Memory card project - https://memory-card-game-70db9d.netlify.app/ -
 
 Click new cards → gain points
 
