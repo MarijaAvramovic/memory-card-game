@@ -13,9 +13,14 @@
   font-weight: bold;
 
   transition: all 0.3s ease;
-  display: flex;
+
+
+    display: flex;
+ 
   justify-content: space-between;
   align-items: center;
+
+
 }
 
  
@@ -31,3 +36,5 @@
 .nav {
     color: #0a0a06;
 }
+
+ 
