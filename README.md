@@ -1,5 +1,7 @@
 Memory card project - https://memory-card-game-70db9d.netlify.app/ -
 
+![Screenshot](/src/memorygame.png)
+
 Click new cards → gain points
 
 Click a repeated card → lose points, reset, best score updates
